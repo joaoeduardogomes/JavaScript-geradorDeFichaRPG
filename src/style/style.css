@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100;8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900;8..144,1000&display=swap');
+
+:root {
+    --cor-azul-escuro: #0D4C87;
+    --cor-azul-claro: #07A0C3;
+    --cor-vermelho: #AF1B3F;
+    --cor-verde: #7C8700;
+    --cor-roxo: #9A94BC;
+    --cor-branco: #F0EFEB;
+    --cor-preto: #000F08;
+
+    --fonte-principal: font-family: 'Roboto Flex', sans-serif;
+}
+
+html {
+    font-size: 8px;
+    font-family: var(--fonte-principal);
+}
+
+main {
+    width: 100vw;
+    max-width: 520px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 2.5rem auto;
+}

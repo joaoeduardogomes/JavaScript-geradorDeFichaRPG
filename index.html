@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Fichas 3D&T Alpha</title>
+
+    <link rel="shortcut icon" href="src/img/3d&t-icon.webp" type="image/x-icon">
+    <link rel="stylesheet" href="src/style/style.css">
+</head>
+<body>
+    <main>
+        <h1>Gerador de fichas <br>3D&T Alpha</h1>
+
+        <div id="container">
+            <list id="lista-atributos">
+                <li class="atributo">
+                    <span id="for">For</span>
+                    <span id="for-valor"></span>
+                </li>
+                <li class="atributo">
+                    <span id="hab">Hab</span>
+                    <span id="hab-valor"></span>
+                </li>
+                <li class="atributo">
+                    <span id="arm">Arm</span>
+                    <span id="arm-valor"></span>
+                </li>
+                <li class="atributo">
+                    <span id="res">Res</span>
+                    <span id="res-valor"></span>
+                </li>
+                <li class="atributo">
+                    <span id="men">Men</span>
+                    <span id="men-valor"></span>
+                </li>
+                <li class="atributo">
+                    <span id="pdf">Pdf</span>
+                    <span id="pdf-valor"></span>
+                </li>
+            </list>
+
+            <select name="iclasses" id="classes-escolher">
+                <option value="" selected>Selecionar classe</option>
+                <option value="guerreiro">Guerreiro</option>
+                <option value="arqueiro">Arqueiro</option>
+                <option value="mago">Mago</option>
+                <option value="ladino">Ladino</option>
+                <option value="capanga">Capanga</option>
+                <option value="aleatorio">Aleatório</option>
+            </select>
+            <button id="btn">Gerar novo</button>
+
+            <section id="pv">
+                <p>PV</p>
+                <p id="pv-valor"></p>
+            </section>
+            <section id="pf">
+                <p>PF</p>
+                <p id="pf-valor"></p>
+            </section>
+            <section id="pm">
+                <p>PM</p>
+                <p id="pm-valor"></p>
+            </section>
+
+            <section id="classe-exibir">
+                <p>Classe</p>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
