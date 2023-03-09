@@ -11,7 +11,7 @@
     --cor-branco: #F0EFEB;
     --cor-preto: #000F08;
 
-    --fonte-principal: font-family: 'Roboto Flex', sans-serif;
+    --fonte-principal: 'Roboto Flex', sans-serif;
 }
 
 * {
@@ -30,6 +30,7 @@ main {
     font-family: var(--fonte-principal);
     margin: 1rem auto;
     border: 2px solid var(--cor-preto);
+    padding: 2rem;
 }
 
 h1 {
@@ -41,14 +42,32 @@ h1 {
 div#container {
     color: var(--cor-branco);
     padding: 0 1rem;
-    font-family: var(--fonte-principal);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "lista-atributos pontos"
+                        "lista-atributos pontos"
+                        "lista-atributos pontos"
+                        "lista-atributos pontos"
+                        "select classe"
+                        "button classe";
+    
+    place-items: center end;
 }
 
-list#lista-atributos > li.atributo {
+ul#lista-atributos {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+ul#lista-atributos > li.atributo {
     margin: 1rem 0;
-    padding: 0.5rem 1.5rem;
+    padding: 1rem 1.5rem;
     list-style: none;
-    max-width: 55%;
+    width: 110%;
     height: 4rem;
     font-size: 3rem;
     font-variant: small-caps;
@@ -61,7 +80,7 @@ list#lista-atributos > li.atributo {
     align-items: center;
     justify-content: space-around;
 }
-list#lista-atributos > li.atributo > span.valor {
+ul#lista-atributos > li.atributo > span.atributo-valor {
     width: 7.5rem;
     height: 3rem;
     margin: 0 1.5rem;
@@ -75,9 +94,9 @@ list#lista-atributos > li.atributo > span.valor {
 
 select#classes-escolher, button#btn {
     display: block;
-    margin-top: 1rem;
+    margin: 1rem auto 0 0;
     height: 6rem;
-    width: 20rem;
+    width: 90%;
     border-radius: 10px;
     border: 2px solid transparent;
     font-size: 2rem;
@@ -87,9 +106,82 @@ select#classes-escolher{
     background-color: var(--cor-branco);
     color: var(--cor-azul-escuro);
     border-color: var(--cor-azul-escuro);
+
+    grid-area: select;
+}
+select#classes-escolher option {
+    background-color: var(--cor-azul-escuro);
+    color: var(--cor-branco);
 }
 
 button#btn {
     background-color: var(--cor-azul-escuro);
     color: var(--cor-branco);
+
+    grid-area: button;
+}
+
+/* LADO DIREITO: */
+section#pontos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 1rem;
+
+    grid-area: pontos;
+}
+div.circulo {
+    width: 13rem;
+    height: 13rem;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 3rem;
+    padding: 1rem;
+    flex-grow: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+div.circulo > p:not(.semicirculo) {
+    margin-top: 2rem;
+}
+div.circulo > p.semicirculo {
+    width: 100%;
+    height: 50%;
+    background-color: var(--cor-branco);
+    border-radius: 0 0 50% 50%/0 0 100% 100%;
+    justify-self: end;
+    color: var(--cor-preto);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pv {
+    background-color: var(--cor-vermelho);
+}
+#pf {
+    background-color: var(--cor-verde);
+}
+#pm {
+    background-color: var(--cor-azul-claro);
+}
+
+div#classe-exibir {
+    width: 13rem;
+    height: 15rem;
+    background-color: var(--cor-roxo);
+    text-align: center;
+    font-size: 3rem;
+    padding: 1rem 1rem 0rem 1rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+
+    grid-area: classe;
+}
+div#classe-exibir > img {
+    width: 10rem;
 }

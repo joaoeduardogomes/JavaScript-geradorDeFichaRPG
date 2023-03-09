@@ -14,32 +14,32 @@
         <h1>Gerador de fichas <br>3D&T Alpha</h1>
 
         <div id="container">
-            <list id="lista-atributos">
+            <ul id="lista-atributos">
                 <li class="atributo">
                     <span id="for">For</span>
-                    <span id="for-valor" class="valor"></span>
+                    <span id="for-valor" class="atributo-valor"></span>
                 </li>
                 <li class="atributo">
                     <span id="hab">Hab</span>
-                    <span id="hab-valor" class="valor"></span>
+                    <span id="hab-valor" class="atributo-valor"></span>
                 </li>
                 <li class="atributo">
                     <span id="arm">Arm</span>
-                    <span id="arm-valor" class="valor">3</span>
+                    <span id="arm-valor" class="atributo-valor"></span>
                 </li>
                 <li class="atributo">
                     <span id="res">Res</span>
-                    <span id="res-valor" class="valor"></span>
+                    <span id="res-valor" class="atributo-valor">3</span>
                 </li>
                 <li class="atributo">
                     <span id="men">Men</span>
-                    <span id="men-valor" class="valor"></span>
+                    <span id="men-valor" class="atributo-valor"></span>
                 </li>
                 <li class="atributo">
                     <span id="pdf">Pdf</span>
-                    <span id="pdf-valor" class="valor"></span>
+                    <span id="pdf-valor" class="atributo-valor"></span>
                 </li>
-            </list>
+            </ul>
 
             <select name="iclasses" id="classes-escolher">
                 <option value="" selected>Selecionar classe</option>
@@ -52,22 +52,25 @@
             </select>
             <button id="btn">Gerar novo</button>
 
-            <section id="pv">
-                <p>PV</p>
-                <p id="pv-valor"></p>
-            </section>
-            <section id="pf">
-                <p>PF</p>
-                <p id="pf-valor"></p>
-            </section>
-            <section id="pm">
-                <p>PM</p>
-                <p id="pm-valor"></p>
+            <section id="pontos">
+                <div id="pv" class="circulo">
+                    <p>PV</p>
+                    <p id="pv-valor" class="semicirculo">15</p>
+                </div>
+                <div id="pf" class="circulo">
+                    <p>PF</p>
+                    <p id="pf-valor" class="semicirculo"></p>
+                </div>
+                <div id="pm" class="circulo">
+                    <p>PM</p>
+                    <p id="pm-valor" class="semicirculo"></p>
+                </div>
             </section>
 
-            <section id="classe-exibir">
+            <div id="classe-exibir">
                 <p>Classe</p>
-            </section>
+                <img src="https://cdn-icons-png.flaticon.com/512/2822/2822371.png" alt="Aventureiro">
+            </div>
         </div>
     </main>
 </body>
