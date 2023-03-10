@@ -28,13 +28,17 @@ function geraValores(num = 12, embaralha_numeros = 3) {
             cont = 0;
         }
 
-        /*if (sum(valores) > maximo) {
+        const maiorValor = valores.reduce((max, curr) => {
+            if (curr > max) max = curr;
+            return max;
+        });
+        if (sum(valores) > maximo) {
             for (let i = 0; i < valores.length; i++) {
-                if (valores[i] == Math.max(valores)) {
+                if (valores[i] == maiorValor) {
                     valores[i] -= (sum(valores) - maximo);
                 }
             }
-        }*/
+        }
 
 
         if (maximo <= 20) {
@@ -47,22 +51,15 @@ function geraValores(num = 12, embaralha_numeros = 3) {
         }
     }
     
-    //! parte problemática:
     const diferenca = (sum(valores) - maximo);
-    const maiorValor = Math.max(valores)
-    if (diferenca > 0) {
-        for (let valor in valores) {
-            if (valor == maiorValor) {
-                valor -= diferenca;
-            }
-        }
-    }
 
     
     //valores.length = 6;
     const soma = sum(valores) 
-    return {valores, soma};
+    return {valores, soma, diferenca};
 }
 
 console.log(geraValores())
+console.log(geraValores(num = 15))
 console.log(geraValores(num = 25))
+console.log(geraValores(num = 30))
