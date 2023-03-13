@@ -19,7 +19,7 @@ function geraValores(num = 12, embaralha_numeros = 3) {
     :param embaralha_numeros: passa como parâmetro o valor de itens embaralhados para o método "embaralha_valores" 
     */
 
-    let valores = [0, 0, 0, 0, 0, 0];
+    const valores = [0, 0, 0, 0, 0, 0];
 
     const maximo = num;
 
@@ -58,11 +58,12 @@ function geraValores(num = 12, embaralha_numeros = 3) {
     }
 
     organizaValores(valores);
+    embaralhaValores(valores);
     
     const diferenca = (sum(valores) - maximo);
 
     
-    const soma = sum(valores) 
+    const soma = sum(valores);
     return {valores, soma, diferenca};
 }
 
@@ -70,6 +71,40 @@ function organizaValores(valores_param) {
     // Organiza os valores gerados em ordem decrescente.
     return valores_param.sort(function(a, b){return b-a});
 }
+
+function embaralhaValores(valores_param) {
+    // Embaralha os três valores mais altos do array pra garantir alguma variação de personagens.
+    
+    const embaralha = valores_param.slice(0,3);
+    embaralha.sort(() => Math.random() - 0.5);
+
+    return valores_param.splice(0, 3, ...embaralha);
+}
+
+//! Segunda parte - classes
+function escolheClasse() {
+    /*
+    -> Fornece ao usuário um menu de seleção de classe para gerar uma ficha de personagem. Ao final, chama a função "executa_classe" passando a escolha como parâmetro.
+    */
+
+
+}
+
+
+//! Terceira parte - interação com o usuário (receber e exibir dados):
+const botao = document.getElementById('btn');
+botao.addEventListener('click', () => {
+    // Pegando os pontos informados pelo usuário.
+        //? passar como parâmetro do gerador de pontos
+    const pontosTotais = parseInt(document.querySelector('input#pontosTotais').value);
+
+    // Pegando a classe selecionada pelo usuário:
+        //? passar como parâmetro do seletor de classes.
+    const classes = document.querySelector('select#classes-escolher');
+    const classeEscolhida = classes.options[classes.selectedIndex].value;
+
+    console.log(pontosTotais, classeEscolhida);
+})
 
 console.log(geraValores())
 console.log(geraValores(num = 15))

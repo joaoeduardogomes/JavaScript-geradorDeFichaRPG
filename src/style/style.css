@@ -70,6 +70,7 @@ ul#lista-atributos > li.atributo {
     width: 110%;
     height: 4rem;
     font-size: 3rem;
+    font-weight: 600;
     font-variant: small-caps;
     background-color: var(--cor-azul-escuro);
 
@@ -114,6 +115,27 @@ select#classes-escolher option {
     color: var(--cor-branco);
 }
 
+fieldset {
+    justify-self: start;
+    width: 90%;
+    padding: 1rem;
+    background-color: var(--cor-verde);
+    border: none;
+    border-radius: 15px;
+}
+fieldset > label {
+    font-size: 2rem;
+}
+fieldset > input#pontosTotais {
+    width: 15rem;
+    height: 5rem;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 15px;
+    border: none;
+    margin-top: 1.2rem;
+}
+
 button#btn {
     background-color: var(--cor-azul-escuro);
     color: var(--cor-branco);
@@ -146,6 +168,7 @@ div.circulo {
 }
 div.circulo > p:not(.semicirculo) {
     margin-top: 2rem;
+    font-weight: bold;
 }
 div.circulo > p.semicirculo {
     width: 100%;
