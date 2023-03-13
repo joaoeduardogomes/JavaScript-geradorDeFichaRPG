@@ -1,8 +1,15 @@
 //! Primeita parte - números:
 
 // funções auxiliares:
-function sum(n) {
-    return n.reduce((total, item) => total + item, 0);
+function sum(valores_parametro) {
+    return valores_parametro.reduce((total, item) => total + item, 0);
+}
+
+function max(valores_parametro) {
+    return valores_parametro.reduce((max, curr) => {
+        if (curr > max) max = curr;
+        return max;
+    });
 }
 
 function geraValores(num = 12, embaralha_numeros = 3) {
@@ -12,7 +19,7 @@ function geraValores(num = 12, embaralha_numeros = 3) {
     :param embaralha_numeros: passa como parâmetro o valor de itens embaralhados para o método "embaralha_valores" 
     */
 
-    const valores = [0, 0, 0, 0, 0, 0];
+    let valores = [0, 0, 0, 0, 0, 0];
 
     const maximo = num;
 
@@ -28,10 +35,9 @@ function geraValores(num = 12, embaralha_numeros = 3) {
             cont = 0;
         }
 
-        const maiorValor = valores.reduce((max, curr) => {
-            if (curr > max) max = curr;
-            return max;
-        });
+
+        //* Respeitar o valor máximo informado:
+        const maiorValor = max(valores);
         if (sum(valores) > maximo) {
             for (let i = 0; i < valores.length; i++) {
                 if (valores[i] == maiorValor) {
@@ -41,8 +47,8 @@ function geraValores(num = 12, embaralha_numeros = 3) {
         }
 
 
+        //* se for menor ou igual a 20, um atributo não pode passar de 5
         if (maximo <= 20) {
-            // se for menor ou igual a 20, um atributo não pode passar de 5
             for (let i = 0; i < valores.length; i++) {
                 if (valores[i] > 5) {
                     valores[i] -= 5;
@@ -50,13 +56,19 @@ function geraValores(num = 12, embaralha_numeros = 3) {
             }
         }
     }
+
+    organizaValores(valores);
     
     const diferenca = (sum(valores) - maximo);
 
     
-    //valores.length = 6;
     const soma = sum(valores) 
     return {valores, soma, diferenca};
+}
+
+function organizaValores(valores_param) {
+    // Organiza os valores gerados em ordem decrescente.
+    return valores_param.sort(function(a, b){return b-a});
 }
 
 console.log(geraValores())
