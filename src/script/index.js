@@ -12,7 +12,7 @@ function max(valores_parametro) {
     });
 }
 
-function geraValores(num = 12, embaralha_numeros = 3) {
+function geraValores(num = 12, valoresEmbaralhados = 3) {
     /*  
     -> gera valores para os atributos de uma ficha de rpg
     :param num: quantidade de pontos a serem distribuídos (12 por padrão)
@@ -58,7 +58,7 @@ function geraValores(num = 12, embaralha_numeros = 3) {
     }
 
     organizaValores(valores);
-    embaralhaValores(valores);
+    embaralhaValores(valores, valoresEmbaralhados);
     
     const diferenca = (sum(valores) - maximo);
 
@@ -72,13 +72,13 @@ function organizaValores(valores_param) {
     return valores_param.sort(function(a, b){return b-a});
 }
 
-function embaralhaValores(valores_param) {
+function embaralhaValores(valores_param, valoresEmbaralhados) {
     // Embaralha os três valores mais altos do array pra garantir alguma variação de personagens.
     
-    const embaralha = valores_param.slice(0,3);
+    const embaralha = valores_param.slice(0,valoresEmbaralhados);
     embaralha.sort(() => Math.random() - 0.5);
 
-    return valores_param.splice(0, 3, ...embaralha);
+    return valores_param.splice(0, valoresEmbaralhados, ...embaralha);
 }
 
 //! Segunda parte - classes
