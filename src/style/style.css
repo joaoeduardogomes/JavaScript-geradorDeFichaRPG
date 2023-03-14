@@ -226,6 +226,6 @@ footer {
     font-family: var(--fonte-principal);
 }
 
-li.atributo, select#classes-escolher, fieldset, button#btn, div.circulo, div#classe-exibir {
+ul#lista-atributos, select#classes-escolher, fieldset, button#btn, div.circulo, div#classe-exibir {
     filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
 }
