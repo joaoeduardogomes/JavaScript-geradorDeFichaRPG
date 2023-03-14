@@ -251,6 +251,11 @@ botao.addEventListener('click', () => {
     let classeEscolhida = classes.options[classes.selectedIndex].value;
     
     // Tratando erros
+    if (pontosTotais < 0 || pontosTotais > 1000) {
+        alert("Use valores entre 0 e 1000.");
+        return;
+    }
+    
     if (classeEscolhida === '') {
         classeEscolhida = 'aleatorio';
     }
