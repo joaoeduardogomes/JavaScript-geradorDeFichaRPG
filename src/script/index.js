@@ -12,7 +12,7 @@ function max(valores_parametro) {
     });
 }
 
-function geraValores(num = 12, valoresEmbaralhados = 3) {
+function geraValores(num = 12, valoresEmbaralhados = 2) {
     /*  
     -> gera valores para os atributos de uma ficha de rpg
     :param num: quantidade de pontos a serem distribuídos (12 por padrão)
@@ -60,11 +60,11 @@ function geraValores(num = 12, valoresEmbaralhados = 3) {
     organizaValores(valores);
     embaralhaValores(valores, valoresEmbaralhados);
     
-    const diferenca = (sum(valores) - maximo);
+    //const diferenca = (sum(valores) - maximo);
 
     
-    const soma = sum(valores);
-    return {valores, soma, diferenca};
+    //const soma = sum(valores);
+    return valores;
 }
 
 function organizaValores(valores_param) {
@@ -82,13 +82,52 @@ function embaralhaValores(valores_param, valoresEmbaralhados) {
 }
 
 //! Segunda parte - classes
-function escolheClasse() {
+    //? O gerenciamento das funções de classe:
+function executaClasse(classe, pontos) {
     /*
-    -> Fornece ao usuário um menu de seleção de classe para gerar uma ficha de personagem. Ao final, chama a função "executa_classe" passando a escolha como parâmetro.
+    -> Executa o método da classe escolhida, fazendo a distribuição dos valores de maneira mais coerente.
+    :param num_escolha: é o valor escolhido no método "escolhe_classe", que será usado no pattern matching.
+    :param num_atributos: é o valor de pontos a serem distribuídos (padrão: 12)
     */
 
+    const embaralhaNumeros = 2;  // valor padrão
 
+    const atributos = {'forca': 0, 'habilidade': 0, 'armadura': 0, 'resistencia': 0, 'mente': 0, 'pdf': 0, 'PV': 0, 'PF': 0, 'PM': 0}
+
+    let atributosValores;
+    let atributosClasse;
+
+    switch (classe) {
+        case 'guerreiro':
+            atributosValores = geraValores(pontos, valoresEmbaralhados = 3);
+            atributosClasse = guerreiro(atributos, atributosValores);
+            break;
+        case 'arqueiro':
+            atributosValores = geraValores(pontos, embaralhaNumeros);
+            //atributosClasse = 
+    }
+
+    atributosClasse.PV = atributosClasse.resistencia * 5;
+    atributosClasse.PF = atributosClasse.resistencia * 5;
+    atributosClasse.PM = atributosClasse.mente * 5;
+
+    console.log({classe, pontos, atributos, atributosClasse})
 }
+
+    //? As classes em si:
+function guerreiro(atributos, atributosValores) {
+    const atributosGuerreiro = {...atributos};
+
+    atributosGuerreiro.forca = atributosValores[0];
+    atributosGuerreiro.armadura = atributosValores[1];
+    atributosGuerreiro.resistencia = atributosValores[2];
+    atributosGuerreiro.habilidade = atributosValores[3];
+    atributosGuerreiro.mente = atributosValores[4];
+    atributosGuerreiro.pdf = atributosValores[5];
+
+    return atributosGuerreiro;
+}
+
 
 
 //! Terceira parte - interação com o usuário (receber e exibir dados):
@@ -96,12 +135,26 @@ const botao = document.getElementById('btn');
 botao.addEventListener('click', () => {
     // Pegando os pontos informados pelo usuário.
         //? passar como parâmetro do gerador de pontos
-    const pontosTotais = parseInt(document.querySelector('input#pontosTotais').value);
-
+    let pontosTotais = parseInt(document.querySelector('input#pontosTotais').value);
+    
     // Pegando a classe selecionada pelo usuário:
-        //? passar como parâmetro do seletor de classes.
+    //? passar como parâmetro do seletor de classes.
     const classes = document.querySelector('select#classes-escolher');
-    const classeEscolhida = classes.options[classes.selectedIndex].value;
+    let classeEscolhida = classes.options[classes.selectedIndex].value;
+    
+    // Tratando erros
+    if (classeEscolhida === '') {
+        classeEscolhida = 'aleatorio';
+    }
+
+    if (isNaN(pontosTotais) && classeEscolhida === 'capanga') {
+        pontosTotais = 5;
+    }
+    else if (isNaN(pontosTotais) && classeEscolhida !== 'capanga') {
+        pontosTotais = 12;
+    }
+
+    executaClasse(classeEscolhida, pontosTotais);
 
     console.log(pontosTotais, classeEscolhida);
 })
