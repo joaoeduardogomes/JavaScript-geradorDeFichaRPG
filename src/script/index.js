@@ -94,6 +94,10 @@ function executaClasse(classe, pontos) {
 
     const atributos = {'forca': 0, 'habilidade': 0, 'armadura': 0, 'resistencia': 0, 'mente': 0, 'pdf': 0, 'PV': 0, 'PF': 0, 'PM': 0}
 
+    const personagem = {};
+    personagem.classe = classe;
+    personagem.pontosTotais = pontos;
+
     let atributosValores;
     let atributosClasse;
 
@@ -104,18 +108,52 @@ function executaClasse(classe, pontos) {
             break;
         case 'arqueiro':
             atributosValores = geraValores(pontos, embaralhaNumeros);
-            //atributosClasse = 
+            atributosClasse = arqueiro(atributos, atributosValores);
+            break;
+        case 'mago':
+            atributosValores = geraValores(pontos, embaralhaNumeros);
+            atributosClasse = mago(atributos, atributosValores);
+            break;
+        case 'ladino':
+            atributosValores = geraValores(pontos, embaralhaNumeros);
+            atributosClasse = ladino(atributos, atributosValores);
+            break;
+        case 'capanga':
+            atributosValores = geraValores(pontos, valoresEmbaralhados = 6);
+            atributosClasse = capanga(atributos, atributosValores);
+            break;
+        default:
+            atributosValores = geraValores(pontos, valoresEmbaralhados = 6);
+            atributosClasse = aleatorio(atributos, atributosValores);
+            break;
     }
 
     atributosClasse.PV = atributosClasse.resistencia * 5;
     atributosClasse.PF = atributosClasse.resistencia * 5;
     atributosClasse.PM = atributosClasse.mente * 5;
 
-    console.log({classe, pontos, atributos, atributosClasse})
+    if (atributosClasse.PV < 1) {
+        atributosClasse.PV = 1;
+    }
+    if (atributosClasse.PF < 1) {
+        atributosClasse.PF = 1;
+    }
+    if (atributosClasse.PM < 1) {
+        atributosClasse.PM = 1;
+    }
+
+    personagem.atributos = atributosClasse;
+
+    return personagem;
 }
 
     //? As classes em si:
 function guerreiro(atributos, atributosValores) {
+    /*
+    -> Gera uma ficha de classe Guerreiro.
+    :param atributos: recupera o objrtos com os nomes dos atributos e os valores iniciais (0)
+    :param atributos_valores: recupera os valores gerados no pattern matching do método "executaClasse" através do método "geraValores"
+    */
     const atributosGuerreiro = {...atributos};
 
     atributosGuerreiro.forca = atributosValores[0];
@@ -128,6 +166,70 @@ function guerreiro(atributos, atributosValores) {
     return atributosGuerreiro;
 }
 
+function arqueiro(atributos, atributosValores) {
+    const atributosArqueiro = {...atributos};
+
+    atributosArqueiro.pdf = atributosValores[0];
+    atributosArqueiro.habilidade = atributosValores[1];
+    atributosArqueiro.armadura = atributosValores[2];
+    atributosArqueiro.resistencia = atributosValores[3];
+    atributosArqueiro.mente = atributosValores[4];
+    atributosArqueiro.forca = atributosValores[5];
+
+    return atributosArqueiro;
+}
+
+function mago(atributos, atributosValores) {
+    const atributosMago = {...atributos};
+
+    atributosMago.mente = atributosValores[0];
+    atributosMago.habilidade = atributosValores[1];
+    atributosMago.resistencia = atributosValores[2];
+    atributosMago.armadura = atributosValores[3];
+    atributosMago.forca = atributosValores[4];
+    atributosMago.pdf = atributosValores[5];
+
+    return atributosMago;
+}
+
+function ladino(atributos, atributosValores) {
+    const atributosLadino = {...atributos};
+
+    atributosLadino.habilidade = atributosValores[0];
+    atributosLadino.resistencia = atributosValores[1];
+    atributosLadino.forca = atributosValores[2];
+    atributosLadino.pdf = atributosValores[3];
+    atributosLadino.armadura = atributosValores[4];
+    atributosLadino.mente = atributosValores[5];
+
+    return atributosLadino;
+}
+
+function capanga(atributos, atributosValores) {
+    const atributosCapanga = {...atributos};
+
+    atributosCapanga.forca = atributosValores[0];
+    atributosCapanga.habilidade = atributosValores[1];
+    atributosCapanga.armadura = atributosValores[2];
+    atributosCapanga.resistencia = atributosValores[3];
+    atributosCapanga.mente = atributosValores[4];
+    atributosCapanga.pdf = atributosValores[5];
+
+    return atributosCapanga;
+}
+
+function aleatorio(atributos, atributosValores) {
+    const atributosAleatorio = {...atributos};
+
+    atributosAleatorio.forca = atributosValores[0];
+    atributosAleatorio.habilidade = atributosValores[1];
+    atributosAleatorio.armadura = atributosValores[2];
+    atributosAleatorio.resistencia = atributosValores[3];
+    atributosAleatorio.mente = atributosValores[4];
+    atributosAleatorio.pdf = atributosValores[5];
+
+    return atributosAleatorio;
+}
 
 
 //! Terceira parte - interação com o usuário (receber e exibir dados):
@@ -154,9 +256,9 @@ botao.addEventListener('click', () => {
         pontosTotais = 12;
     }
 
-    executaClasse(classeEscolhida, pontosTotais);
+    const personagem = executaClasse(classeEscolhida, pontosTotais);
 
-    console.log(pontosTotais, classeEscolhida);
+    console.log(personagem);
 })
 
 console.log(geraValores())
