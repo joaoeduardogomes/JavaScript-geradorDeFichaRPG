@@ -295,6 +295,9 @@ function exibeDados(personagem) {
     //* Imagem do personagem:
     const img = document.querySelector('img#personagem-img');
     img.src = personagem.img;
+
+    const abbr = document.querySelector('abbr');
+    abbr.title = personagem.classe;
     
     console.log(personagem);
 }

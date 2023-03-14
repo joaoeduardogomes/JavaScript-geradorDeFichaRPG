@@ -214,7 +214,7 @@ div#classe-exibir {
 
     grid-area: classe;
 }
-div#classe-exibir > img {
+div#classe-exibir img {
     width: 12rem;
     margin-bottom: -1rem;
 }
