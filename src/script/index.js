@@ -105,26 +105,32 @@ function executaClasse(classe, pontos) {
         case 'guerreiro':
             atributosValores = geraValores(pontos, valoresEmbaralhados = 3);
             atributosClasse = guerreiro(atributos, atributosValores);
+            personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822374.png";
             break;
         case 'arqueiro':
             atributosValores = geraValores(pontos, embaralhaNumeros);
             atributosClasse = arqueiro(atributos, atributosValores);
+            personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822363.png";
             break;
         case 'mago':
             atributosValores = geraValores(pontos, embaralhaNumeros);
             atributosClasse = mago(atributos, atributosValores);
+            personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822378.png";
             break;
         case 'ladino':
             atributosValores = geraValores(pontos, embaralhaNumeros);
             atributosClasse = ladino(atributos, atributosValores);
+            personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822380.png";
             break;
         case 'capanga':
             atributosValores = geraValores(pontos, valoresEmbaralhados = 6);
             atributosClasse = capanga(atributos, atributosValores);
+            personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822379.png";
             break;
         default:
             atributosValores = geraValores(pontos, valoresEmbaralhados = 6);
             atributosClasse = aleatorio(atributos, atributosValores);
+            personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822371.png";
             break;
     }
 
@@ -285,6 +291,10 @@ function exibeDados(personagem) {
     pv.textContent = personagem.atributos.PV;
     pf.textContent = personagem.atributos.PF;
     pm.textContent = personagem.atributos.PM;
+
+    //* Imagem do personagem:
+    const img = document.querySelector('img#personagem-img');
+    img.src = personagem.img;
     
     console.log(personagem);
 }
