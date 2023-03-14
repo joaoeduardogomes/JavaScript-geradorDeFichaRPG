@@ -258,10 +258,33 @@ botao.addEventListener('click', () => {
 
     const personagem = executaClasse(classeEscolhida, pontosTotais);
 
-    console.log(personagem);
+    exibeDados(personagem);
 })
 
-console.log(geraValores())
-console.log(geraValores(num = 15))
-console.log(geraValores(num = 25))
-console.log(geraValores(num = 30))
+function exibeDados(personagem) {
+    //* atributos de base:
+    const forca = document.querySelector('span#for-valor');
+    const habilidade = document.querySelector('span#hab-valor');
+    const armadura = document.querySelector('span#arm-valor');
+    const resistencia = document.querySelector('span#res-valor');
+    const mente = document.querySelector('span#men-valor');
+    const pdf = document.querySelector('span#pdf-valor');
+
+    forca.textContent = personagem.atributos.forca;
+    habilidade.textContent = personagem.atributos.habilidade;
+    armadura.textContent = personagem.atributos.armadura;
+    resistencia.textContent = personagem.atributos.resistencia;
+    mente.textContent = personagem.atributos.mente;
+    pdf.textContent = personagem.atributos.pdf;
+    
+    //* pontos de saúde:
+    const pv = document.querySelector('p#pv-valor');
+    const pf = document.querySelector('p#pf-valor');
+    const pm = document.querySelector('p#pm-valor');
+
+    pv.textContent = personagem.atributos.PV;
+    pf.textContent = personagem.atributos.PF;
+    pm.textContent = personagem.atributos.PM;
+    
+    console.log(personagem);
+}

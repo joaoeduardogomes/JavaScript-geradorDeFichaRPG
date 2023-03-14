@@ -69,7 +69,7 @@ ul#lista-atributos > li.atributo {
     padding: 1rem 1.5rem;
     list-style: none;
     width: 110%;
-    height: 4rem;
+    height: 4.5rem;
     font-size: 3rem;
     font-weight: 600;
     font-variant: small-caps;
@@ -84,7 +84,7 @@ ul#lista-atributos > li.atributo {
 }
 ul#lista-atributos > li.atributo > span.atributo-valor {
     width: 7.5rem;
-    height: 3rem;
+    height: 3.5rem;
     margin: 0 1.5rem;
     background-color: var(--cor-branco);
     color: var(--cor-preto);
