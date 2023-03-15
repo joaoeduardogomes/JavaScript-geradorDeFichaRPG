@@ -253,9 +253,6 @@ ul#lista-atributos, select#classes-escolher, fieldset, button#btn, div.circulo, 
         max-width: 410px;
     }
 
-    button#btn {
-        width: 90%;
-    }
 
     section#pontos {
         flex-direction: row;
@@ -276,9 +273,20 @@ ul#lista-atributos, select#classes-escolher, fieldset, button#btn, div.circulo, 
         max-width: 300px;
         height: 100%;
         margin-top: 0;
+        background-color: #fff;
+        border: 5px solid var(--cor-roxo);
+        border-radius: 15px;
+        color: var(--cor-preto);
+        font-weight: bold;
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-evenly;
     }
     div#classe-exibir img {
-        width: 80%;
+        width: 100%;
         margin-bottom: 0;
     }
 }

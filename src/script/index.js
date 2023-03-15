@@ -64,6 +64,9 @@ function exibeDados(personagem) {
     const img = document.querySelector('img#personagem-img');
     img.src = personagem.img;
 
+    const imgGrande = document.querySelector('source#personagem-img-grande');
+    imgGrande.srcset = personagem.imgGrande;
+
     const abbr = document.querySelector('abbr#info-classe');
     abbr.title = personagem.classe;
     
