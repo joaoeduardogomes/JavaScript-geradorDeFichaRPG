@@ -94,6 +94,10 @@ ul#lista-atributos > li.atributo > span.atributo-valor {
     clip-path: polygon(0 0, 100% 0, 76% 100%, 0% 100%);
 }
 
+abbr.info{
+    text-decoration: none;
+}
+
 select#classes-escolher, button#btn {
     display: block;
     margin: 1rem auto 0 0;

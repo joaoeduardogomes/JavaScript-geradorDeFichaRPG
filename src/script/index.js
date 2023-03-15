@@ -301,7 +301,7 @@ function exibeDados(personagem) {
     const img = document.querySelector('img#personagem-img');
     img.src = personagem.img;
 
-    const abbr = document.querySelector('abbr');
+    const abbr = document.querySelector('abbr#info-classe');
     abbr.title = personagem.classe;
     
     console.log(personagem);
