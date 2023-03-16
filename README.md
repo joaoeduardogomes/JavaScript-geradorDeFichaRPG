@@ -15,3 +15,4 @@ Links das imagens grandes:
 [Aleatório/aventureiro](https://i.pinimg.com/564x/1f/ce/11/1fce11a20fcbed8c17769b46efde750c.jpg)
 
 Se você for o autor de alguma dessas imagens e quiser ter seu nome creditado ou quiser que as imagens sejam removidas do projeto, favor entrar em contato.
+(eng: If you are the author of any of these images and would like to have your name credited or would like the images removed from the project, please contact me.)
