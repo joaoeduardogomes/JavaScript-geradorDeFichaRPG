@@ -60,6 +60,9 @@ ul#lista-atributos {
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 1rem;
+
+    grid-area: lista-atributos;
+    justify-self: start;
 }
 ul#lista-atributos > li.atributo {
     margin: 1rem 0;
@@ -242,14 +245,14 @@ ul#lista-atributos, select#classes-escolher, fieldset, button#btn, div.circulo, 
     }
 
     div#container {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas: "lista-atributos classe classe"
-                            "total-pontos pontos pontos"
-                            "select button button";
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: "lista-atributos lista-atributos classe classe"
+                            "total-pontos total-pontos pontos pontos"
+                            "select select button button";
     }
 
     ul#lista-atributos {
-        width: 40vw;
+        width: 100%;
         max-width: 410px;
     }
 
@@ -287,6 +290,49 @@ ul#lista-atributos, select#classes-escolher, fieldset, button#btn, div.circulo, 
     }
     div#classe-exibir img {
         width: 100%;
+        max-height: 480px;
         margin-bottom: 0;
+    }
+}
+
+@media screen and (1024px <= width) {
+    html {
+        font-size: 12px;
+    }
+
+    main {
+        width: 95vw;
+        max-width: 1200px;
+    }
+
+    div#container {
+        grid-template-areas: "lista-atributos lista-atributos classe classe"
+                            "total-pontos total-pontos pontos pontos"
+                            "select select pontos pontos"
+                            "button button none none";
+        place-items: center center;
+    }
+
+    ul#lista-atributos {
+        width: 100%;
+        max-width: 480px;
+    }
+
+    button#btn {
+        width: 90%;
+    }
+
+    div.circulo {
+        width: 13rem;
+        height: 13rem;
+        font-size: 3rem;
+        margin-top: 2rem;
+    }
+
+    div#classe-exibir {
+        max-width: 400px;
+    }
+    div#classe-exibir img {
+        height: 480px;
     }
 }
