@@ -60,10 +60,6 @@ function geraValores(num = 12, valoresEmbaralhados = 2) {
     organizaValores(valores);
     embaralhaValores(valores, valoresEmbaralhados);
     
-    //const diferenca = (sum(valores) - maximo);
-
-    
-    //const soma = sum(valores);
     return valores;
 }
 
