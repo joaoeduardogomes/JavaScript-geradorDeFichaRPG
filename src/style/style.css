@@ -295,7 +295,7 @@ ul#lista-atributos, select#classes-escolher, fieldset, button#btn, div.circulo, 
     }
 }
 
-@media screen and (1024px <= width) {
+@media screen and (1024px < width) {
     html {
         font-size: 12px;
     }
