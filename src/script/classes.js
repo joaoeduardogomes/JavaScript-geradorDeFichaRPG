@@ -25,37 +25,37 @@ function executaClasse(classe, pontos) {
             atributosValores = geraValores(pontos, geraValores.valoresEmbaralhados = 3);
             atributosClasse = guerreiro(atributos, atributosValores);
             personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822374.png";
-            personagem.imgGrande = "https://i.pinimg.com/564x/c5/4c/d6/c54cd67d639b87171d13ba578193ca23.jpg";
+            personagem.imgGrande = "src/img/warrior.png";
             break;
         case 'arqueiro':
             atributosValores = geraValores(pontos, embaralhaNumeros);
             atributosClasse = arqueiro(atributos, atributosValores);
             personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822363.png";
-            personagem.imgGrande = "https://i.pinimg.com/564x/c7/96/b0/c796b0272157341a12cd9ddd63ff2ec5.jpg";
+            personagem.imgGrande = "src/img/archer.png";
             break;
         case 'mago':
             atributosValores = geraValores(pontos, embaralhaNumeros);
             atributosClasse = mago(atributos, atributosValores);
             personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822378.png";
-            personagem.imgGrande = "https://i.pinimg.com/564x/37/79/8f/37798f3a9200d3f7b5f4976eafa7a0bc.jpg";
+            personagem.imgGrande = "src/img/mage.png";
             break;
         case 'ladino':
             atributosValores = geraValores(pontos, embaralhaNumeros);
             atributosClasse = ladino(atributos, atributosValores);
             personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822380.png";
-            personagem.imgGrande = "https://i.pinimg.com/564x/58/a0/db/58a0db3a94f6413b329ecf024ac641b1.jpg";
+            personagem.imgGrande = "src/img/rogue.png";
             break;
         case 'capanga':
             atributosValores = geraValores(pontos, geraValores.valoresEmbaralhados = 6);
             atributosClasse = capanga(atributos, atributosValores);
             personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822379.png";
-            personagem.imgGrande = "https://i.pinimg.com/564x/5a/28/a6/5a28a613464c3991e51b73231de52c6a.jpg";
+            personagem.imgGrande = "src/img/thug.png";
             break;
         default:
             atributosValores = geraValores(pontos, geraValores.valoresEmbaralhados = 6);
             atributosClasse = aleatorio(atributos, atributosValores);
             personagem.img = "https://cdn-icons-png.flaticon.com/512/2822/2822371.png";
-            personagem.imgGrande = "https://i.pinimg.com/564x/1f/ce/11/1fce11a20fcbed8c17769b46efde750c.jpg";
+            personagem.imgGrande = "src/img/adventurer.png";
             break;
     }
 
