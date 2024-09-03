@@ -5,7 +5,8 @@
 # JavaScript-geradorDeFichaRPG
 Character generator based on the 3D&T Alpha system.
 
-![image](https://github.com/joaoeduardogomes/JavaScript-geradorDeFichaRPG/assets/86986385/3885a2ad-1491-4b2f-9234-5e3c1f9bd3b0)
+![image](https://github.com/user-attachments/assets/dbdc7938-85d8-4ddd-9d1b-a3b00d008919)
+
 
 
 ## What problem does it solve?
